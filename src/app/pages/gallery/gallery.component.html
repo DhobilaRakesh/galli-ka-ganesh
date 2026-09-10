@@ -24,7 +24,7 @@
     <div class="gallery-grid">
       <button
         class="gallery-grid__item fade-up"
-        *ngFor="let img of filteredImages; let i = index"
+        *ngFor="let img of visibleImages; let i = index"
         (click)="openLightbox(i)"
       >
         <img [src]="img.src" [alt]="img.alt" loading="lazy" />
@@ -34,12 +34,18 @@
         </span>
       </button>
     </div>
+
+    <div class="show-more-wrap" *ngIf="hasMoreImages">
+      <button class="btn btn--dark" (click)="toggleImages()">
+        {{ showAllImages ? 'Show Less ↑' : 'Show More (' + remainingImagesCount + ' more) ↓' }}
+      </button>
+    </div>
   </div>
 </section>
 
 <gkg-lightbox
   *ngIf="lightboxIndex !== null"
-  [images]="filteredImages"
+  [images]="visibleImages"
   [activeIndex]="lightboxIndex"
   (closed)="closeLightbox()"
   (indexChange)="lightboxIndex = $event"

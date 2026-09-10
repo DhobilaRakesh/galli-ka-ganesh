@@ -18,6 +18,10 @@ export class AboutComponent {
   readonly achievements;
   readonly defaultAvatar = 'assets/images/association/user.png';
 
+  /** Members grid starts collapsed to this many, with a "Show More" reveal. */
+  private readonly initialMemberCount = 6;
+  showAllMembers = false;
+
   readonly activities = [
     { icon: '🎨', title: 'Mandap Decoration', desc: 'Designing and building the festival mandap each year.' },
     { icon: '🎭', title: 'Cultural Programs', desc: 'Organizing dance, music and drama events for the community.' },
@@ -30,6 +34,18 @@ export class AboutComponent {
   constructor(private dataService: DataService) {
     this.members = this.dataService.getMembers();
     this.achievements = this.dataService.getAchievements();
+  }
+
+  get visibleMembers() {
+    return this.showAllMembers ? this.members : this.members.slice(0, this.initialMemberCount);
+  }
+
+  get hasMoreMembers(): boolean {
+    return this.members.length > this.initialMemberCount;
+  }
+
+  toggleMembers(): void {
+    this.showAllMembers = !this.showAllMembers;
   }
 
   /** Swaps a member's photo to the default avatar if it's missing or fails to load. */

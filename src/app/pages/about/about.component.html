@@ -60,7 +60,7 @@
     ></gkg-section-title>
 
     <div class="grid grid--3 members-grid">
-      <div class="card member-card" *ngFor="let m of members">
+      <div class="card member-card" *ngFor="let m of visibleMembers">
         <div class="member-card__avatar">
           <img
             [src]="m.image || defaultAvatar"
@@ -72,6 +72,12 @@
         <h4>{{ m.name }}</h4>
         <span>{{ m.role }}</span>
       </div>
+    </div>
+
+    <div class="show-more-wrap" *ngIf="hasMoreMembers">
+      <button class="btn btn--dark" (click)="toggleMembers()">
+        {{ showAllMembers ? 'Show Less ↑' : 'Show More (' + (members.length - 6) + ' more) ↓' }}
+      </button>
     </div>
   </div>
 </section>
