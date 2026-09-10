@@ -1,0 +1,120 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__pattern" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__content fade-up">
+      <span class="eyebrow hero__eyebrow">🙏 Ganesh Chaturthi {{ festival.startDate.getFullYear() }}</span>
+      <h1 class="hero__title">
+        Galli Ka <span>Ganesh</span>
+      </h1>
+      <p class="hero__subtitle">{{ festival.associationName }}</p>
+      <p class="hero__desc">
+        Join us in celebrating devotion, unity and youth energy as {{ festival.village }},
+        {{ festival.mandal }} comes together to welcome Lord Ganesha with grand poojas,
+        cultural programs and community spirit.
+      </p>
+
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span>📅</span>
+          <div><strong>Festival Starts</strong><small>September 14</small></div>
+        </div>
+        <div class="hero__meta-item">
+          <span>📍</span>
+          <div><strong>Location</strong><small>{{ festival.village }}, {{ festival.mandal }}</small></div>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <a routerLink="/programs" class="btn btn--primary">🎉 View Programs</a>
+        <a routerLink="/location" class="btn btn--outline">📍 Get Directions</a>
+      </div>
+    </div>
+
+    <div class="hero__visual fade-up-delay-2">
+      <div class="hero__ganesh-card">
+        <span class="hero__ganesh-emoji">🐘</span>
+        <p>Om Gan Ganapataye Namah</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__countdown-wrap fade-up-delay-3">
+    <div class="container">
+      <p class="hero__countdown-label">🙏 Ganesh Festival Starts In</p>
+      <gkg-countdown [targetDate]="festival.startDate" theme="dark"></gkg-countdown>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST UPDATE STRIP -->
+<section class="update-strip" *ngIf="latestUpdate">
+  <div class="container update-strip__inner">
+    <span class="update-strip__badge">📢 Latest Update</span>
+    <p><strong>{{ latestUpdate.title }}:</strong> {{ latestUpdate.description }}</p>
+    <a routerLink="/updates" class="update-strip__link">All Updates →</a>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="section">
+  <div class="container">
+    <gkg-section-title
+      eyebrow="Explore"
+      title="Everything About the Celebration"
+      subtitle="From daily rituals to festival-day programs — find everything you need right here."
+    ></gkg-section-title>
+
+    <div class="grid grid--4">
+      <a class="card quick-card" *ngFor="let link of quickLinks" [routerLink]="link.path">
+        <span class="quick-card__icon">{{ link.icon }}</span>
+        <h3>{{ link.title }}</h3>
+        <p>{{ link.desc }}</p>
+        <span class="quick-card__arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TEASER -->
+<section class="section section--alt about-teaser">
+  <div class="container about-teaser__inner">
+    <div class="about-teaser__text fade-up">
+      <span class="eyebrow">Who We Are</span>
+      <h2>Friends Youth Association</h2>
+      <p>
+        For generations, the youth of {{ festival.village }} have come together every year to
+        organize Galli Ka Ganesh with devotion and enthusiasm — blending age-old tradition with
+        fresh community energy. From decorating the mandap to organizing cultural nights and
+        community service drives, our association is the heartbeat of this festival.
+      </p>
+      <a routerLink="/about" class="btn btn--dark">Learn More About Us</a>
+    </div>
+    <div class="about-teaser__stats fade-up-delay-1">
+      <div class="stat-card">
+        <strong>10+</strong>
+        <span>Years of Celebration</span>
+      </div>
+      <div class="stat-card">
+        <strong>50+</strong>
+        <span>Active Youth Members</span>
+      </div>
+      <div class="stat-card">
+        <strong>1000+</strong>
+        <span>Devotees Welcomed Yearly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <h2>Be Part of the Celebration</h2>
+    <p>Whether you want to volunteer, contribute, or simply join us in devotion — everyone is welcome.</p>
+    <div class="hero__actions">
+      <a routerLink="/contact" class="btn btn--primary">🙏 Get Involved</a>
+      <a routerLink="/gallery" class="btn btn--outline">📸 View Gallery</a>
+    </div>
+  </div>
+</section>

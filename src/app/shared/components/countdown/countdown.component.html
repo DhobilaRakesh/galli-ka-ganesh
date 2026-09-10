@@ -1,0 +1,26 @@
+<div class="countdown" [class.countdown--light]="theme === 'light'" *ngIf="countdown$ | async as c">
+  <ng-container *ngIf="!c.isFinished; else finished">
+    <div class="countdown__unit">
+      <span class="countdown__value">{{ pad(c.days) }}</span>
+      <span class="countdown__label">Days</span>
+    </div>
+    <span class="countdown__sep">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__value">{{ pad(c.hours) }}</span>
+      <span class="countdown__label">Hours</span>
+    </div>
+    <span class="countdown__sep">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__value">{{ pad(c.minutes) }}</span>
+      <span class="countdown__label">Minutes</span>
+    </div>
+    <span class="countdown__sep">:</span>
+    <div class="countdown__unit">
+      <span class="countdown__value">{{ pad(c.seconds) }}</span>
+      <span class="countdown__label">Seconds</span>
+    </div>
+  </ng-container>
+  <ng-template #finished>
+    <p class="countdown__finished">🙏 Ganpati Bappa Morya! The festival has begun. 🙏</p>
+  </ng-template>
+</div>

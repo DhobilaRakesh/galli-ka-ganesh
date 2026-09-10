@@ -1,0 +1,43 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">📍 Find Us</span>
+    <h1>Festival Location</h1>
+    <p class="page-hero__desc">
+      Visit us during Ganesh Chaturthi at the heart of {{ festival.village }}.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container location-grid">
+    <div class="location-card card">
+      <h3>🕉️ {{ festival.name }}</h3>
+      <p class="location-card__assoc">{{ festival.associationName }}</p>
+      <ul class="location-card__list">
+        <li><strong>Village:</strong> {{ festival.village }}</li>
+        <li><strong>Mandal:</strong> {{ festival.mandal }}</li>
+        <li><strong>District:</strong> {{ festival.district }}</li>
+        <li><strong>State:</strong> {{ festival.state }}</li>
+      </ul>
+      <p class="location-card__address">{{ festival.address }}</p>
+      <a
+        [href]="'https://www.google.com/maps/search/?api=1&query=' + festival.mapsQuery"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--primary"
+      >
+        📍 Get Directions
+      </a>
+    </div>
+
+    <div class="map-wrap card">
+      <iframe
+        [src]="mapUrl"
+        title="Galli Ka Ganesh location map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">🪔 Daily Rituals</span>
+    <h1>Daily Pooja Schedule</h1>
+    <p class="page-hero__desc">
+      Join us every day of the festival for these sacred rituals, aartis and community programs.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <gkg-section-title
+      title="Today's Schedule"
+      subtitle="Timings observed daily throughout the festival, from morning pooja to evening cultural programs."
+    ></gkg-section-title>
+
+    <div class="grid grid--3">
+      <div
+        class="card pooja-card"
+        *ngFor="let item of schedule"
+        [class.pooja-card--special]="item.isSpecial"
+      >
+        <span class="pooja-card__badge" *ngIf="item.isSpecial">Special</span>
+        <span class="pooja-card__icon">{{ item.icon }}</span>
+        <h3>{{ item.title }}</h3>
+        <p class="pooja-card__time">🕐 {{ item.time }}</p>
+        <p class="pooja-card__desc">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container note-card">
+    <span class="note-card__icon">📿</span>
+    <div>
+      <h3>Devotees Are Welcome</h3>
+      <p>
+        All villagers and visiting devotees are warmly invited to participate in every pooja and aarti.
+        Prasadam is offered after each ritual. Timings may be adjusted slightly on special festival days
+        — please check the Festival Updates page for real-time changes.
+      </p>
+    </div>
+  </div>
+</section>

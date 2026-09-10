@@ -1,0 +1,39 @@
+<header class="header" [class.header--scrolled]="isScrolled">
+  <div class="container header__bar">
+    <a routerLink="/" class="header__brand" (click)="closeMenu()">
+      <span class="header__brand-icon">🕉️</span>
+      <span class="header__brand-text">
+        <strong>Galli Ka Ganesh</strong>
+        <small>Friends Youth Association</small>
+      </span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--open]="isMenuOpen">
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+      <a routerLink="/contact" class="btn btn--primary header__nav-cta" (click)="closeMenu()"
+        >🙏 Join Us</a
+      >
+    </nav>
+
+    <button
+      class="header__toggle"
+      [class.header__toggle--open]="isMenuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="header__backdrop" *ngIf="isMenuOpen" (click)="closeMenu()"></div>

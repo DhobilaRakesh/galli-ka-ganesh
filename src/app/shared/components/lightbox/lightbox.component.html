@@ -1,0 +1,12 @@
+<div class="lightbox" *ngIf="active" (click)="close()">
+  <button class="lightbox__close" (click)="close()" aria-label="Close preview">✕</button>
+
+  <button class="lightbox__nav lightbox__nav--prev" (click)="prev($event)" aria-label="Previous image">‹</button>
+
+  <figure class="lightbox__figure" (click)="$event.stopPropagation()">
+    <img [src]="active.src" [alt]="active.alt" class="lightbox__img" />
+    <figcaption class="lightbox__caption">{{ active.category }}</figcaption>
+  </figure>
+
+  <button class="lightbox__nav lightbox__nav--next" (click)="next($event)" aria-label="Next image">›</button>
+</div>

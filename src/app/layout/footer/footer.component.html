@@ -1,0 +1,53 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <h3 class="footer__brand">🕉️ {{ festival.name }}</h3>
+      <p>{{ festival.associationName }}</p>
+      <p class="footer__muted">
+        Celebrating devotion, unity and youth energy in {{ festival.village }}, {{ festival.mandal }}.
+      </p>
+      <div class="footer__social">
+        <a [href]="festival.social.facebook" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a [href]="festival.social.instagram" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a [href]="festival.social.youtube" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+        <a [href]="festival.social.whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/daily-pooja">Daily Pooja</a></li>
+        <li><a routerLink="/programs">Programs & Events</a></li>
+        <li><a routerLink="/gallery">Gallery</a></li>
+        <li><a routerLink="/updates">Festival Updates</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Location</h4>
+      <p class="footer__muted">
+        {{ festival.village }}<br />
+        {{ festival.mandal }}, {{ festival.district }}<br />
+        {{ festival.state }}
+      </p>
+      <a routerLink="/location" class="footer__link">View on Map →</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <p class="footer__muted">📞{{ festival.phone }}</p>
+      <p class="footer__muted">{{ festival.email }}</p>
+      <a routerLink="/contact" class="btn btn--primary footer__cta">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>© {{ year }} {{ festival.name }} – {{ festival.associationName }}. All rights reserved.</p>
+      <!-- <p>Made with 🧡 by the youth of {{ festival.village }}</p> -->
+      <p>Made with 🧡 by Rakesh Dhobila</p>
+    </div>
+  </div>
+</footer>

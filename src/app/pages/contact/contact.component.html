@@ -1,0 +1,118 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">📞 Reach Out</span>
+    <h1>Contact Us</h1>
+    <p class="page-hero__desc">
+      Have a question, want to volunteer, or wish to contribute? We'd love to hear from you.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div class="card info-card">
+        <span class="info-card__icon">📞</span>
+        <div>
+          <h4>Phone</h4>
+          <p>{{ festival.phone }}</p>
+          <p>{{ festival.altPhone }}</p>
+        </div>
+      </div>
+      <div class="card info-card">
+        <span class="info-card__icon">✉️</span>
+        <div>
+          <h4>Email</h4>
+          <p>{{ festival.email }}</p>
+        </div>
+      </div>
+      <div class="card info-card">
+        <span class="info-card__icon">📍</span>
+        <div>
+          <h4>Address</h4>
+          <p>{{ festival.address }}</p>
+        </div>
+      </div>
+      <div class="card info-card">
+        <span class="info-card__icon">🔗</span>
+        <div>
+          <h4>Follow Us</h4>
+          <div class="info-card__social">
+            <a [href]="festival.social.facebook" target="_blank" rel="noopener">Facebook</a>
+            <a [href]="festival.social.instagram" target="_blank" rel="noopener">Instagram</a>
+            <a [href]="festival.social.whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card contact-form-card">
+      <h3>Send Us a Message</h3>
+      <p class="contact-form-card__note" *ngIf="!submitted">
+        📲 Tapping "Send" opens <strong>WhatsApp</strong> on your device with your message
+        pre-filled to our association number — just hit send there to deliver it to us instantly,
+        no sign-up or backend required.
+      </p>
+
+      <div class="form-success" *ngIf="submitted">
+        ✅ Your WhatsApp message window has been opened with your details filled in — please tap
+        <strong>Send</strong> inside WhatsApp to deliver it to us. 🙏
+        <p class="form-success__fallback">
+          Didn't open automatically, or prefer text message instead? Use a button below:
+        </p>
+        <div class="form-success__actions">
+          <a [href]="lastWhatsAppUrl" target="_blank" rel="noopener" class="btn btn--primary"
+            >🟢 Open WhatsApp</a
+          >
+          <a [href]="lastSmsUrl" class="btn btn--dark">💬 Send as SMS</a>
+        </div>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate *ngIf="!submitted">
+        <div class="form-field">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" formControlName="name" placeholder="Your name" />
+          <span class="form-error" *ngIf="f['name'].invalid && f['name'].touched">
+            Please enter your name (min. 2 characters).
+          </span>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" formControlName="phone" placeholder="e.g. 9876543210" />
+          <span class="form-error" *ngIf="f['phone'].invalid && f['phone'].touched">
+            Please enter a valid phone number.
+          </span>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            rows="4"
+            formControlName="message"
+            placeholder="How can we help you?"
+          ></textarea>
+          <span class="form-error" *ngIf="f['message'].invalid && f['message'].touched">
+            Please enter a message (min. 10 characters).
+          </span>
+        </div>
+
+        <button type="submit" class="btn btn--primary">📤 Send via WhatsApp</button>
+      </form>
+
+      <button class="btn btn--dark" *ngIf="submitted" (click)="sendAnother()">
+        Send Another Message
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <gkg-section-title title="Find Us on the Map"></gkg-section-title>
+    <div class="map-wrap card">
+      <iframe [src]="mapUrl" title="Location map" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

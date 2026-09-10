@@ -1,0 +1,38 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">🎉 What's Happening</span>
+    <h1>Programs & Events</h1>
+    <p class="page-hero__desc">
+      A full lineup of poojas, cultural nights and community events throughout Ganesh Chaturthi.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <button
+        *ngFor="let cat of categories"
+        class="filters__btn"
+        [class.filters__btn--active]="activeCategory === cat"
+        (click)="setCategory(cat)"
+      >
+        {{ cat }}
+      </button>
+    </div>
+
+    <div class="grid grid--3 events-grid">
+      <div class="card event-card" *ngFor="let event of filteredEvents">
+        <div class="event-card__top">
+          <span class="event-card__category">{{ categoryIcon(event.category) }} {{ event.category }}</span>
+          <span class="event-card__date">{{ event.date }}</span>
+        </div>
+        <h3>{{ event.title }}</h3>
+        <p class="event-card__time">🕐 {{ event.time }}</p>
+        <p class="event-card__desc">{{ event.description }}</p>
+      </div>
+    </div>
+
+    <p class="empty-state" *ngIf="filteredEvents.length === 0">No events found in this category yet.</p>
+  </div>
+</section>

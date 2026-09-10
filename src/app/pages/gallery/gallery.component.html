@@ -1,0 +1,46 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">📸 Memories</span>
+    <h1>Festival Gallery</h1>
+    <p class="page-hero__desc">
+      A visual journey through the idol, decorations, poojas and celebrations of Galli Ka Ganesh.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <button
+        *ngFor="let cat of categories"
+        class="filters__btn"
+        [class.filters__btn--active]="activeCategory === cat"
+        (click)="setCategory(cat)"
+      >
+        {{ cat }}
+      </button>
+    </div>
+
+    <div class="gallery-grid">
+      <button
+        class="gallery-grid__item fade-up"
+        *ngFor="let img of filteredImages; let i = index"
+        (click)="openLightbox(i)"
+      >
+        <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+        <span class="gallery-grid__overlay">
+          <span>{{ img.category }}</span>
+          <span class="gallery-grid__zoom">🔍</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<gkg-lightbox
+  *ngIf="lightboxIndex !== null"
+  [images]="filteredImages"
+  [activeIndex]="lightboxIndex"
+  (closed)="closeLightbox()"
+  (indexChange)="lightboxIndex = $event"
+></gkg-lightbox>

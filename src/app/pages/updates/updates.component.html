@@ -1,0 +1,30 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">📢 Stay Informed</span>
+    <h1>Festival Updates</h1>
+    <p class="page-hero__desc">
+      The latest announcements, schedule changes and important notices for this year's celebration.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <gkg-section-title title="Announcements"></gkg-section-title>
+
+    <div class="updates-list">
+      <div
+        class="card update-item"
+        *ngFor="let u of updates"
+        [class.update-item--important]="u.isImportant"
+      >
+        <div class="update-item__date">{{ u.date }}</div>
+        <div class="update-item__body">
+          <span class="update-item__badge" *ngIf="u.isImportant">⚠️ Important</span>
+          <h3>{{ u.title }}</h3>
+          <p>{{ u.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

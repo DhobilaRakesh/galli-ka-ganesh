@@ -1,0 +1,102 @@
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="eyebrow">Friends Youth Association</span>
+    <h1>About Us</h1>
+    <p class="page-hero__desc">
+      The devoted youth behind Galli Ka Ganesh — carrying forward tradition with unity and energy in
+      {{ festival.village }}, {{ festival.mandal }}.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container mission-grid">
+    <div class="mission-card card fade-up">
+      <span class="mission-card__icon">🕉️</span>
+      <h3>About the Association</h3>
+      <p>
+        Friends Youth Association was formed by a group of like-minded young people from
+        {{ festival.village }} who wanted to celebrate Ganesh Chaturthi with greater devotion, planning
+        and community involvement. Today, it stands as one of the most active youth organizations in
+        {{ festival.mandal }}, {{ festival.district }}.
+      </p>
+    </div>
+    <div class="mission-card card fade-up-delay-1">
+      <span class="mission-card__icon">🎯</span>
+      <h3>Our Mission</h3>
+      <p>
+        To preserve and celebrate our cultural and spiritual heritage while empowering the youth of our
+        village to lead community service, cultural programs, and festival organization with unity and
+        pride.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <gkg-section-title
+      eyebrow="What We Do"
+      title="Youth Activities & Community Service"
+      subtitle="Beyond the festival, our members stay active throughout the year in service of the village."
+    ></gkg-section-title>
+
+    <div class="grid grid--3">
+      <div class="card activity-card" *ngFor="let a of activities">
+        <span class="activity-card__icon">{{ a.icon }}</span>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <gkg-section-title
+      eyebrow="Our People"
+      title="Association Members"
+      subtitle="The dedicated core team leading this year's celebrations."
+    ></gkg-section-title>
+
+    <div class="grid grid--3 members-grid">
+      <div class="card member-card" *ngFor="let m of members">
+        <div class="member-card__avatar">
+          <img [src]="m.image" [alt]="m.name + ' - ' + m.role" loading="lazy" />
+        </div>
+        <h4>{{ m.name }}</h4>
+        <span>{{ m.role }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <gkg-section-title
+      eyebrow="Milestones"
+      title="Our Achievements"
+      subtitle="Moments we are proud of from past celebrations."
+    ></gkg-section-title>
+
+    <div class="timeline">
+      <div class="timeline__item" *ngFor="let ach of achievements">
+        <div class="timeline__year">{{ ach.year }}</div>
+        <div class="timeline__content card">
+          <h4>{{ ach.title }}</h4>
+          <p>{{ ach.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-cta">
+  <div class="container text-center">
+    <h2>Want to Join or Support Us?</h2>
+    <p class="section-subtitle">
+      We welcome new members, volunteers and well-wishers from {{ festival.village }} and beyond.
+    </p>
+    <a routerLink="/contact" class="btn btn--primary">Get in Touch</a>
+  </div>
+</section>
