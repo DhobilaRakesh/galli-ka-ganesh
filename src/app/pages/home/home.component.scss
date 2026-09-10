@@ -76,20 +76,17 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
-  animation: float 4s ease-in-out infinite;
+  max-width: 100%;
 }
-.hero__ganesh-card img {
+.hero__ganesh-photo {
   width: 280px;
   height: 280px;
+  max-width: 60vw;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
+  object-fit: cover;
   background: rgba(255,255,255,.12);
   border: 2px solid rgba(255,255,255,.3);
-  backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
   box-shadow: var(--shadow-strong);
   animation: float 4s ease-in-out infinite;
 }
@@ -201,8 +198,7 @@
   .about-teaser__stats { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 620px) {
-  .hero__ganesh-card {height: 270px; }
-  // .hero__ganesh-card { width: 220px; height: 220px; }
+  .hero__ganesh-photo { width: 220px; height: 220px; }
   .hero__ganesh-emoji { font-size: 4.5rem; }
   .about-teaser__stats { grid-template-columns: 1fr; }
 }

@@ -16,6 +16,7 @@ export class AboutComponent {
   readonly festival = FESTIVAL_CONFIG;
   readonly members;
   readonly achievements;
+  readonly defaultAvatar = 'assets/images/association/user.png';
 
   readonly activities = [
     { icon: '🎨', title: 'Mandap Decoration', desc: 'Designing and building the festival mandap each year.' },
@@ -29,5 +30,13 @@ export class AboutComponent {
   constructor(private dataService: DataService) {
     this.members = this.dataService.getMembers();
     this.achievements = this.dataService.getAchievements();
+  }
+
+  /** Swaps a member's photo to the default avatar if it's missing or fails to load. */
+  onMemberImgError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src.indexOf(this.defaultAvatar) === -1) {
+      img.src = this.defaultAvatar;
+    }
   }
 }

@@ -171,38 +171,50 @@ export class DataService {
       {
         id: 1,
         name: 'Association President',
-        role: 'President',
+        role: 'Nallgoni Ajay',
         image: 'assets/images/association/member_1.jpg',
       },
       {
         id: 2,
         name: 'Association Vice President',
-        role: 'Vice President',
+        role: 'Macharla Mahesh',
         image: 'assets/images/association/member_2.jpg',
       },
       {
         id: 3,
         name: 'General Secretary',
-        role: 'Secretary',
+        role: 'Reddy Vivek',
         image: 'assets/images/association/member_3.jpg',
       },
       {
         id: 4,
         name: 'Cashier',
-        role: 'Cashier',
-        image: 'assets/images/association/member_1.jpg',
+        role: 'Nallgoni Rajkumar',
+        image: 'assets/images/association/member_7.jpeg',
       },
       {
         id: 5,
         name: 'Cultural Committee Lead',
-        role: 'Cultural Head',
+        role: 'Dhobila Rakesh',
         image: 'assets/images/association/member_4.jpg',
       },
       {
         id: 6,
         name: 'Youth Coordinator',
-        role: 'Youth Coordinator',
+        role: 'MD Irfan',
         image: 'assets/images/association/member_5.jpg',
+      },
+      {
+        id: 7,
+        name: 'Committee Member',
+        role: 'Name',
+        image: '',
+      },
+      {
+        id: 8,
+        name: 'Committee Member',
+        role: 'Name',
+        image: '',
       },
     ];
   }

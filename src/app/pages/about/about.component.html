@@ -62,7 +62,12 @@
     <div class="grid grid--3 members-grid">
       <div class="card member-card" *ngFor="let m of members">
         <div class="member-card__avatar">
-          <img [src]="m.image" [alt]="m.name + ' - ' + m.role" loading="lazy" />
+          <img
+            [src]="m.image || defaultAvatar"
+            (error)="onMemberImgError($event)"
+            [alt]="m.name + ' - ' + m.role"
+            loading="lazy"
+          />
         </div>
         <h4>{{ m.name }}</h4>
         <span>{{ m.role }}</span>
