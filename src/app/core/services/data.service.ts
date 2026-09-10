@@ -216,7 +216,7 @@ export class DataService {
         role: 'Name',
         image: '',
       },
-       {
+      {
         id: 9,
         name: 'Committee Member',
         role: 'Name',
