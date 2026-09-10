@@ -114,22 +114,22 @@ export class DataService {
     // Curated, hand-ordered set so Ganesh imagery is spread naturally across the
     // grid rather than clustered together, while every category stays represented.
     const images: GalleryImage[] = [
-      { id: 1, src: `${g}ganesh-idol-1.svg`, alt: 'Lord Ganesha mandap darshan', category: 'Ganesh Idol' },
-      { id: 2, src: `${g}gallery-3.svg`, alt: 'Mandap decoration setup', category: 'Mandap Decoration' },
-      { id: 3, src: `${g}gallery-4.svg`, alt: 'Cultural program performance', category: 'Cultural Programs' },
-      { id: 4, src: `${g}ganesh-idol-2.svg`, alt: 'Modak naivedyam offering to Ganesha', category: 'Ganesh Idol' },
-      { id: 5, src: `${g}gallery-5.svg`, alt: 'Youth association volunteers', category: 'Youth Association' },
-      { id: 6, src: `${g}gallery-2.svg`, alt: 'Pooja celebration rituals', category: 'Pooja Celebrations' },
-      { id: 7, src: `${g}ganesh-idol-3.svg`, alt: 'Lotus and divine blessings of Ganesha', category: 'Ganesh Idol' },
-      { id: 8, src: `${g}gallery-6.svg`, alt: 'Community event gathering', category: 'Community Events' },
-      { id: 9, src: `${g}gallery-7.svg`, alt: 'Previous year celebration highlight', category: 'Previous Years' },
-      { id: 10, src: `${g}ganesh-idol-4.svg`, alt: 'Golden crown of Lord Ganesha', category: 'Ganesh Idol' },
-      { id: 11, src: `${g}gallery-1.svg`, alt: 'Ganesh idol at the mandap', category: 'Ganesh Idol' },
-      { id: 12, src: `${g}gallery-3.svg`, alt: 'Festive mandap lighting', category: 'Mandap Decoration' },
-      { id: 13, src: `${g}gallery-4.svg`, alt: 'Youth cultural dance performance', category: 'Cultural Programs' },
-      { id: 14, src: `${g}gallery-5.svg`, alt: 'Association members at festival duty', category: 'Youth Association' },
-      { id: 15, src: `${g}gallery-6.svg`, alt: 'Villagers at community feast', category: 'Community Events' },
-      { id: 16, src: `${g}gallery-7.svg`, alt: 'Memories from past celebrations', category: 'Previous Years' },
+      { id: 1, src: `${g}ganesh_2.avif`, alt: 'Lord Ganesha mandap darshan', category: 'Ganesh Idol' },
+      { id: 2, src: `${g}ganesh_4.jpg`, alt: 'Mandap decoration setup', category: 'Mandap Decoration' },
+      { id: 3, src: `${g}ganesh_5.jpg`, alt: 'Cultural program performance', category: 'Cultural Programs' },
+      { id: 4, src: `${g}ganesh_11.avif`, alt: 'Modak naivedyam offering to Ganesha', category: 'Ganesh Idol' },
+      { id: 5, src: `${g}ganesh_7.jpg`, alt: 'Youth association volunteers', category: 'Youth Association' },
+      { id: 6, src: `${g}ganesh_8.jpg`, alt: 'Pooja celebration rituals', category: 'Pooja Celebrations' },
+      { id: 7, src: `${g}ganesh_9.jpg`, alt: 'Lotus and divine blessings of Ganesha', category: 'Ganesh Idol' },
+      { id: 8, src: `${g}ganesh_10.jpg`, alt: 'Community event gathering', category: 'Community Events' },
+      { id: 9, src: `${g}ganesh_2.avif`, alt: 'Previous year celebration highlight', category: 'Previous Years' },
+      { id: 10, src: `${g}ganesh_4.jpg`, alt: 'Golden crown of Lord Ganesha', category: 'Ganesh Idol' },
+      { id: 11, src: `${g}ganesh_3.jpg`, alt: 'Ganesh idol at the mandap', category: 'Ganesh Idol' },
+      { id: 12, src: `${g}ganesh_4.jpg`, alt: 'Festive mandap lighting', category: 'Mandap Decoration' },
+      { id: 13, src: `${g}ganesh_5.jpg`, alt: 'Youth cultural dance performance', category: 'Cultural Programs' },
+      { id: 14, src: `${g}ganesh_6.jpg`, alt: 'Association members at festival duty', category: 'Youth Association' },
+      { id: 15, src: `${g}ganesh_7.jpg`, alt: 'Villagers at community feast', category: 'Community Events' },
+      { id: 16, src: `${g}ganesh_8.jpg`, alt: 'Memories from past celebrations', category: 'Previous Years' },
     ];
     return images;
   }

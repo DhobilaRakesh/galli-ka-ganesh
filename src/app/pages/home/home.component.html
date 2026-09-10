@@ -32,11 +32,19 @@
     </div>
 
     <div class="hero__visual fade-up-delay-2">
-      <div class="hero__ganesh-card">
-        <span class="hero__ganesh-emoji">🐘</span>
+      <div class="hero__ganesh-card" >
+        <span><img [src]="'assets/images/gallery/ganesh_4.jpg'" alt="Lord Ganesha"/></span>
         <p>Om Gan Ganapataye Namah</p>
       </div>
     </div>
+
+    <!-- <div class="hero__visual fade-up-delay-2">
+      <div >
+        <img class="hero__ganesh-card" [src]="'assets/images/gallery/ganesh_4.jpg'" alt="Lord Ganesha" class="hero__ganesh-image" />
+        <p>Om Gan Ganapataye Namah</p>
+      </div>
+    </div> -->
+
   </div>
 
   <div class="hero__countdown-wrap fade-up-delay-3">
@@ -59,11 +67,8 @@
 <!-- QUICK LINKS -->
 <section class="section">
   <div class="container">
-    <gkg-section-title
-      eyebrow="Explore"
-      title="Everything About the Celebration"
-      subtitle="From daily rituals to festival-day programs — find everything you need right here."
-    ></gkg-section-title>
+    <gkg-section-title eyebrow="Explore" title="Everything About the Celebration"
+      subtitle="From daily rituals to festival-day programs — find everything you need right here."></gkg-section-title>
 
     <div class="grid grid--4">
       <a class="card quick-card" *ngFor="let link of quickLinks" [routerLink]="link.path">
