@@ -141,7 +141,7 @@ export class DataService {
         title: 'Festival Dates Confirmed',
         description:
           'Ganesh Chaturthi celebrations at Galli Ka Ganesh will officially begin on September 14 and conclude with Visarjan on September 23.',
-        date: 'Sep 5, 2026',
+        date: 'Sep 8, 2026',
         isImportant: true,
       },
       {
@@ -149,19 +149,19 @@ export class DataService {
         title: 'Volunteer Registrations Open',
         description:
           'Youth association members and villagers can register as festival volunteers at the association office.',
-        date: 'Sep 6, 2026',
+        date: 'Sep 9, 2026',
       },
       {
         id: 3,
         title: 'Mandap Decoration Begins',
         description: 'Decoration work for the main mandap has started under the supervision of senior members.',
-        date: 'Sep 8, 2026',
+        date: 'Sep 10, 2026',
       },
       {
         id: 4,
         title: 'Cultural Program Schedule Released',
         description: 'The full schedule for youth talent night and dance competitions has been finalized.',
-        date: 'Sep 9, 2026',
+        date: 'Sep 11, 2026',
       },
     ];
   }
@@ -212,6 +212,12 @@ export class DataService {
       },
       {
         id: 8,
+        name: 'Committee Member',
+        role: 'Name',
+        image: '',
+      },
+       {
+        id: 9,
         name: 'Committee Member',
         role: 'Name',
         image: '',
