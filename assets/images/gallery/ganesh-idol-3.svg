@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF9933"/>
+      <stop offset="100%" stop-color="#4a1a00"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bgC)"/>
+  <g fill="#FFF8ED" opacity="0.9">
+    <path d="M300 460c-70-10-120-58-120-120 40 30 80 40 120 24 40 16 80 6 120-24 0 62-50 110-120 120z"/>
+  </g>
+  <circle cx="300" cy="250" r="70" fill="#FFC94A" opacity="0.85"/>
+  <text x="300" y="266" font-family="Georgia, serif" font-size="60" text-anchor="middle" fill="#8E1B20">🪷</text>
+  <text x="300" y="540" font-family="Georgia, serif" font-size="26" fill="#FFF8ED" text-anchor="middle" font-weight="700">Divine Blessings</text>
+</svg>

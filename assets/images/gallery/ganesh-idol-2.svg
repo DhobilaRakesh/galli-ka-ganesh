@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="bgB" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#FFE3B0"/>
+      <stop offset="100%" stop-color="#8E1B20"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bgB)"/>
+  <text x="300" y="300" font-family="Georgia, serif" font-size="180" fill="#FFF8ED" text-anchor="middle" opacity="0.9">ॐ</text>
+  <g fill="#FFC94A" opacity="0.95">
+    <ellipse cx="180" cy="470" rx="26" ry="32"/>
+    <ellipse cx="240" cy="470" rx="26" ry="32"/>
+    <ellipse cx="300" cy="470" rx="26" ry="32"/>
+    <ellipse cx="360" cy="470" rx="26" ry="32"/>
+    <ellipse cx="420" cy="470" rx="26" ry="32"/>
+  </g>
+  <text x="300" y="540" font-family="Georgia, serif" font-size="26" fill="#FFF8ED" text-anchor="middle" font-weight="700">Modak Naivedyam</text>
+</svg>
