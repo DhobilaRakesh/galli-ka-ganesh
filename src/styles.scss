@@ -52,6 +52,50 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Toggled on <body> by the header component while the mobile nav drawer
+   is open, so the page behind it can't be scrolled. This is transient
+   (menu-open only) so it never interferes with the header's normal
+   fixed-position behavior. */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* IMPORTANT: never put overflow-x/overflow-y: hidden (or auto/scroll),
+   transform, filter, backdrop-filter, perspective, will-change:transform,
+   or contain:layout/paint/strict/content on <html>, <body>, or the app
+   root (gkg-root). All of these are ANCESTORS of the fixed <header> (and
+   of the fixed mobile .header__nav drawer nested inside it) — any of the
+   above properties on an ancestor would make that ancestor the
+   containing block for position:fixed descendants, detaching the header
+   (and/or the drawer) from the real viewport. Horizontal-scroll
+   containment is instead applied further down, only to elements that
+   are siblings of the header (<main>, <footer>), never to an ancestor
+   of it. */
+
+/* Angular renders component selectors (gkg-header, gkg-root, etc.) as
+   unrecognised custom tags, and browsers default unknown elements to
+   `display: inline`. Force every app-level custom element to behave like
+   a normal block box (this only sets `display`/`width`, never `overflow`
+   or any containing-block-triggering property). */
+gkg-root,
+gkg-header,
+gkg-footer,
+gkg-home,
+gkg-about,
+gkg-pooja,
+gkg-programs,
+gkg-gallery,
+gkg-updates,
+gkg-location,
+gkg-contact,
+gkg-section-title,
+gkg-countdown,
+gkg-lightbox {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
 /* Defensive guards against any element (long unbroken text, oversized media,
    fixed-width widgets) forcing the page wider than the viewport on mobile. */
 img, svg, video, iframe, canvas {
@@ -59,6 +103,20 @@ img, svg, video, iframe, canvas {
   height: auto;
 }
 img { display: block; }
+
+/* Flex/grid items shrink to their min-content size by default, which is
+   `auto` (i.e. "never shrink below intrinsic content width") unless told
+   otherwise. Combined with long unbroken words this is a very common
+   cause of horizontal overflow inside any .grid or flex row in this file. */
+.grid > *,
+.hero__inner > *,
+.about-teaser__inner > *,
+.contact-grid > *,
+.location-grid > *,
+.mission-grid > *,
+.footer__grid > * {
+  min-width: 0;
+}
 
 h1, h2, h3, h4, p, a, span, small, li {
   overflow-wrap: break-word;
@@ -105,7 +163,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--color-red);
+  // color: var(--color-red);
   background: rgba(255, 153, 51, .14);
   padding: 6px 16px;
   border-radius: 999px;

@@ -1,21 +1,61 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
 .header {
-  position: -webkit-sticky;
-  position: sticky;
+  /* FIXED, not sticky. position:sticky depends on finding the correct
+     "nearest scrolling ancestor" and has long-standing, well-documented
+     cross-browser inconsistencies (Safari, and various DevTools
+     responsive/device-emulation modes) where it silently falls back to
+     static positioning. position:fixed has no such dependency: its
+     containing block is unconditionally the viewport as long as no
+     ancestor sets transform/filter/backdrop-filter/perspective/
+     will-change/contain (verified clean across this entire codebase —
+     see the ancestor-chain note below). This is the standard,
+     bullet-proof pattern production sites use for headers that must
+     always remain pinned regardless of scroll direction or device. */
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 500;
   height: var(--header-height);
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease;
+  /* IMPORTANT — ancestor chain contract (html → body → gkg-root → gkg-header
+     → .header): none of these may ever get `transform`, `filter`,
+     `backdrop-filter`, `perspective`, `will-change: transform`, or
+     `contain: layout/paint/strict/content`. Any of those on an ancestor
+     would make THAT ancestor the containing block for this fixed header
+     (and for the fixed mobile .header__nav drawer nested inside it),
+     detaching both from the real viewport. The translucent blur
+     background below is applied on ::before instead, which is not an
+     ancestor of anything and so cannot cause this problem. */
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(255, 248, 237, .82);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
-  transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  transition: background .3s ease, box-shadow .3s ease;
 }
 
 .header--scrolled {
+  border-bottom-color: rgba(255, 153, 51, .18);
+}
+.header--scrolled::before {
   background: rgba(255, 248, 237, .97);
   box-shadow: var(--shadow-soft);
-  border-bottom-color: rgba(255, 153, 51, .18);
 }
 
 .header__bar {
@@ -113,13 +153,16 @@
     position: fixed;
     top: var(--header-height);
     right: 0;
-    height: calc(100vh - var(--header-height));
-    width: min(320px, 82vw);
+    height: calc(100dvh - var(--header-height));
+    max-height: calc(100vh - var(--header-height));
+    width: min(320px, 85%);
+    max-width: 100%;
     background: var(--color-cream);
     flex-direction: column;
     align-items: flex-start;
     padding: 28px 24px;
     gap: 24px;
+    overflow-y: auto;
     transform: translateX(100%);
     transition: transform .32s ease;
     box-shadow: -8px 0 30px rgba(0,0,0,.15);

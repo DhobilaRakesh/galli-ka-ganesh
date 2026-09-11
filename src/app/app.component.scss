@@ -1,6 +1,25 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  /* No overflow/transform/filter property here on purpose: :host is
+     gkg-root, a direct ancestor of <gkg-header>/<header>, which is now
+     position:fixed. Any of those properties on an ancestor would make
+     this element the containing block for the header (and the fixed
+     mobile drawer nested inside it), detaching them from the real
+     viewport. Horizontal-scroll containment stays on <main> below,
+     which is a sibling of the header, not an ancestor. */
+}
+
 main {
   display: block;
   min-height: 60vh;
   overflow-x: hidden;
   width: 100%;
+  max-width: 100%;
+  /* .header is position:fixed (removed from normal document flow), so
+     without this the hero/first section of every page would render
+     underneath it. This padding is the exact height of the header and
+     is the standard, non-hacky way to reserve that space back. */
+  padding-top: var(--header-height);
 }
